@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<!-- saved from url=(0174)https://skyagent-artifacts.skywork.ai/page/2024286546519076864/448bf22e-ce8a-40e0-99f2-1698a4e6ed25/prod_agent_2024286546519076864/renovation_planner_transparent_overlay.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Home Renovation Planner - Transparent Overlays</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header with Background Image */
+        .header {
+            background-image: url('https://skyagent-artifacts.skywork.ai/image/2024286546519076864/d463938e-9a27-43da-aedd-61401efdc490/prod_agent_2024286546519076864/renovation_banner_background_20260221113940_1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 41, 59, 0.5); /* Reduced from 0.6 to 0.5 */
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        /* Stats Cards with Background Images */
+        .stats-section {
+            padding: 40px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .stat-card.days-remaining {
+            background-image: url('https://skyagent-artifacts.skywork.ai/image/2024286546519076864/4cdeeb4f-a331-4a0b-8efd-be288b462465/prod_agent_2024286546519076864/calendar_days_background_20260221113953_1.png');
+        }
+        
+        .stat-card.days-remaining::before {
+            background: rgba(255, 255, 255, 0.75); /* Reduced from 0.85 to 0.75 */
+        }
+        
+        .stat-card.total-budget {
+            background-image: url('https://skyagent-artifacts.skywork.ai/image/2024286546519076864/bd0bda3f-b136-4838-9739-70461a658e9e/prod_agent_2024286546519076864/budget_money_background_20260221114008_1.png');
+        }
+        
+        .stat-card.total-budget::before {
+            background: rgba(255, 255, 255, 0.75); /* Reduced from 0.85 to 0.75 */
+        }
+        
+        .stat-card.tasks-completed {
+            background-image: url('https://skyagent-artifacts.skywork.ai/image/2024286546519076864/7d71e24e-9793-4dc4-a578-875f88029635/prod_agent_2024286546519076864/tasks_completed_background_20260221114021_1.png');
+        }
+        
+        .stat-card.tasks-completed::before {
+            background: rgba(255, 255, 255, 0.75); /* Reduced from 0.85 to 0.75 */
+        }
+        
+        .stat-card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-tab {
+            padding: 15px 30px;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .nav-tab.active {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+        }
+        
+        .nav-tab:hover:not(.active) {
+            background: #f1f5f9;
+            color: #1e40af;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* Timeline */
+        .timeline {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .timeline-week {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #3b82f6;
+        }
+        
+        .week-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 15px;
+        }
+        
+        .week-tasks {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #3b82f6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .task-checkbox.completed {
+            background: #3b82f6;
+            position: relative;
+        }
+        
+        .task-checkbox.completed::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .task-text {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .task-text.completed {
+            text-decoration: line-through;
+            color: #64748b;
+        }
+        
+        /* Budget Calculator */
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .budget-category {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+        
+        .budget-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .budget-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .budget-total {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .total-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        /* Checklists */
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .checklist-category {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .checklist-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 20px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Print Styles */
+        .print-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .print-btn {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.3);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+        }
+        
+        @media print {
+            .nav-tabs, .print-section {
+                display: none;
+            }
+            
+            .content-section {
+                display: block !important;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .header {
+                background: none;
+                color: #1e293b;
+            }
+            
+            .header::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="container">
+                <h1>30-Day Home Renovation Planner</h1>
+                <p>Transform your vision into reality with our comprehensive digital toolkit</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card days-remaining">
+                    <div class="stat-card-content">
+                        <span class="stat-number" id="daysRemaining">30</span>
+                        <div class="stat-label">Days Remaining</div>
+                    </div>
+                </div>
+                <div class="stat-card total-budget">
+                    <div class="stat-card-content">
+                        <span class="stat-number" id="totalBudget">$0</span>
+                        <div class="stat-label">Total Budget</div>
+                    </div>
+                </div>
+                <div class="stat-card tasks-completed">
+                    <div class="stat-card-content">
+                        <span class="stat-number" id="tasksCompleted">0%</span>
+                        <div class="stat-label">Tasks Completed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-tabs">
+                <button class="nav-tab active" onclick="showSection(&#39;timeline&#39;)">Timeline</button>
+                <button class="nav-tab" onclick="showSection(&#39;budget&#39;)">Budget Calculator</button>
+                <button class="nav-tab" onclick="showSection(&#39;checklists&#39;)">Checklists</button>
+                <button class="nav-tab" onclick="showSection(&#39;expenses&#39;)">Expense Tracker</button>
+            </nav>
+
+            <!-- Timeline Section -->
+            <section id="timeline" class="content-section active">
+                <h2 class="section-title">30-Day Renovation Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-week">
+                        <h3 class="week-title">Week 1: Planning &amp; Preparation</h3>
+                        <div class="week-tasks">
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Create detailed project plan and timeline</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Obtain necessary permits and approvals</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Finalize budget and secure financing</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Order materials and schedule deliveries</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Hire contractors and confirm schedules</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-week">
+                        <h3 class="week-title">Week 2: Demolition &amp; Structural Work</h3>
+                        <div class="week-tasks">
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Complete demolition work</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Address structural modifications</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Update electrical and plumbing rough-ins</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Install new windows and doors</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Complete HVAC installation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-week">
+                        <h3 class="week-title">Week 3: Installation &amp; Systems</h3>
+                        <div class="week-tasks">
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Install insulation and drywall</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Complete electrical and plumbing finals</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Install flooring materials</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Paint walls and ceilings</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Install kitchen cabinets and countertops</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-week">
+                        <h3 class="week-title">Week 4: Finishing Touches</h3>
+                        <div class="week-tasks">
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Install fixtures and appliances</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Complete trim and molding work</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Final cleaning and touch-ups</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Final inspections and approvals</div>
+                            </div>
+                            <div class="task-item">
+                                <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                                <div class="task-text">Project completion and celebration!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Budget Calculator Section -->
+            <section id="budget" class="content-section">
+                <h2 class="section-title">Budget Calculator</h2>
+                <div class="budget-grid">
+                    <div class="budget-category">
+                        <h3 class="category-title">Labor Costs</h3>
+                        <input type="number" class="budget-input" placeholder="General Contractor" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Electrician" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Plumber" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Other Specialists" oninput="calculateTotal()">
+                    </div>
+
+                    <div class="budget-category">
+                        <h3 class="category-title">Materials</h3>
+                        <input type="number" class="budget-input" placeholder="Flooring" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Paint &amp; Supplies" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Fixtures" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Hardware" oninput="calculateTotal()">
+                    </div>
+
+                    <div class="budget-category">
+                        <h3 class="category-title">Major Items</h3>
+                        <input type="number" class="budget-input" placeholder="Appliances" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Cabinets" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Countertops" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Windows &amp; Doors" oninput="calculateTotal()">
+                    </div>
+
+                    <div class="budget-category">
+                        <h3 class="category-title">Permits &amp; Fees</h3>
+                        <input type="number" class="budget-input" placeholder="Building Permits" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Inspection Fees" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Design Fees" oninput="calculateTotal()">
+                        <input type="number" class="budget-input" placeholder="Contingency (10%)" oninput="calculateTotal()">
+                    </div>
+                </div>
+
+                <div class="budget-total">
+                    <div class="total-amount" id="budgetTotal">$0</div>
+                    <div>Total Project Budget</div>
+                </div>
+            </section>
+
+            <!-- Checklists Section -->
+            <section id="checklists" class="content-section">
+                <h2 class="section-title">Renovation Checklists</h2>
+                <div class="checklist-grid">
+                    <div class="checklist-category">
+                        <h3 class="checklist-title">Pre-Construction</h3>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Design plans finalized</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Permits obtained</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Contractors hired</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Materials ordered</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Timeline established</div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3 class="checklist-title">Kitchen Renovation</h3>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Appliances selected</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Cabinet design approved</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Countertop material chosen</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Plumbing layout confirmed</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Electrical plan finalized</div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3 class="checklist-title">Bathroom Renovation</h3>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Fixtures selected</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Tile design chosen</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Ventilation planned</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Waterproofing specified</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Storage solutions planned</div>
+                        </div>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3 class="checklist-title">Final Inspection</h3>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">All systems functional</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Safety features installed</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Cleanup completed</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Final walkthrough done</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="task-checkbox" onclick="toggleTask(this)"></div>
+                            <div class="task-text">Warranty information collected</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expense Tracker Section -->
+            <section id="expenses" class="content-section">
+                <h2 class="section-title">Expense Tracker</h2>
+                <div class="budget-grid">
+                    <div class="budget-category">
+                        <h3 class="category-title">Add New Expense</h3>
+                        <input type="text" class="budget-input" id="expenseDescription" placeholder="Description">
+                        <input type="number" class="budget-input" id="expenseAmount" placeholder="Amount">
+                        <select class="budget-input" id="expenseCategory">
+                            <option value="">Select Category</option>
+                            <option value="labor">Labor</option>
+                            <option value="materials">Materials</option>
+                            <option value="permits">Permits</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <button class="print-btn" onclick="addExpense()">Add Expense</button>
+                    </div>
+
+                    <div class="budget-category">
+                        <h3 class="category-title">Recent Expenses</h3>
+                        <div id="expenseList">
+                            <p style="color: #64748b; text-align: center; padding: 20px;">No expenses recorded yet</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Print Section -->
+            <div class="print-section">
+                <button class="print-btn" onclick="printSection(&#39;timeline&#39;)">Print Timeline</button>
+                <button class="print-btn" onclick="printSection(&#39;budget&#39;)">Print Budget</button>
+                <button class="print-btn" onclick="printSection(&#39;checklists&#39;)">Print Checklists</button>
+                <button class="print-btn" onclick="printSection(&#39;expenses&#39;)">Print Expenses</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Task toggle functionality
+        function toggleTask(checkbox) {
+            checkbox.classList.toggle('completed');
+            const taskText = checkbox.nextElementSibling;
+            taskText.classList.toggle('completed');
+            updateTasksCompleted();
+        }
+
+        // Update tasks completed percentage
+        function updateTasksCompleted() {
+            const allTasks = document.querySelectorAll('.task-checkbox');
+            const completedTasks = document.querySelectorAll('.task-checkbox.completed');
+            const percentage = Math.round((completedTasks.length / allTasks.length) * 100);
+            document.getElementById('tasksCompleted').textContent = percentage + '%';
+        }
+
+        // Budget calculation
+        function calculateTotal() {
+            const inputs = document.querySelectorAll('.budget-input[type="number"]');
+            let total = 0;
+            
+            inputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                total += value;
+            });
+            
+            document.getElementById('budgetTotal').textContent = '$' + total.toLocaleString();
+            document.getElementById('totalBudget').textContent = '$' + total.toLocaleString();
+        }
+
+        // Expense tracking
+        let expenses = [];
+
+        function addExpense() {
+            const description = document.getElementById('expenseDescription').value;
+            const amount = parseFloat(document.getElementById('expenseAmount').value);
+            const category = document.getElementById('expenseCategory').value;
+            
+            if (description && amount && category) {
+                const expense = {
+                    id: Date.now(),
+                    description: description,
+                    amount: amount,
+                    category: category,
+                    date: new Date().toLocaleDateString()
+                };
+                
+                expenses.push(expense);
+                updateExpenseList();
+                
+                // Clear form
+                document.getElementById('expenseDescription').value = '';
+                document.getElementById('expenseAmount').value = '';
+                document.getElementById('expenseCategory').value = '';
+            }
+        }
+
+        function updateExpenseList() {
+            const expenseList = document.getElementById('expenseList');
+            
+            if (expenses.length === 0) {
+                expenseList.innerHTML = '<p style="color: #64748b; text-align: center; padding: 20px;">No expenses recorded yet</p>';
+                return;
+            }
+            
+            expenseList.innerHTML = expenses.map(expense => `
+                <div class="task-item">
+                    <div style="flex: 1;">
+                        <strong>${expense.description}</strong><br>
+                        <small>${expense.category} - ${expense.date}</small>
+                    </div>
+                    <div style="font-weight: bold; color: #1e40af;">$${expense.amount.toLocaleString()}</div>
+                </div>
+            `).join('');
+        }
+
+        // Print functionality
+        function printSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const printWindow = window.open('', '_blank');
+            
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>30-Day Renovation Planner - ${sectionId}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .section-title { color: #1e40af; margin-bottom: 20px; }
+                        .timeline-week, .budget-category, .checklist-category { 
+                            margin-bottom: 20px; 
+                            padding: 15px; 
+                            border: 1px solid #e2e8f0; 
+                            border-radius: 8px; 
+                        }
+                        .week-title, .category-title, .checklist-title { 
+                            color: #1e40af; 
+                            margin-bottom: 10px; 
+                        }
+                        .task-item, .checklist-item { 
+                            padding: 8px 0; 
+                            border-bottom: 1px solid #f1f5f9; 
+                        }
+                        .budget-total { 
+                            background: #1e40af; 
+                            color: white; 
+                            padding: 20px; 
+                            text-align: center; 
+                            border-radius: 8px; 
+                            margin-top: 20px; 
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${section.innerHTML}
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // Initialize days remaining countdown
+        function updateDaysRemaining() {
+            // This would typically be calculated based on project start date
+            // For demo purposes, we'll keep it at 30
+            document.getElementById('daysRemaining').textContent = '30';
+        }
+
+        // Initialize the planner
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDaysRemaining();
+            updateTasksCompleted();
+            calculateTotal();
+        });
+    </script>
+
+</body></html>
